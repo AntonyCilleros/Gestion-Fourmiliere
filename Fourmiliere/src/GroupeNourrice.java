@@ -1,3 +1,6 @@
 public class GroupeNourrice extends GroupeFourmies{
-    // rien de spécial
+    public GroupeNourrice(int satiete, int nbFourmies, int nbMaxFourmies, int nbMinFourmies) {
+        super(satiete, nbFourmies, nbMaxFourmies, nbMinFourmies);
+    }
+    // nourrir larves
 }
