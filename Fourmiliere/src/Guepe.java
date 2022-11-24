@@ -1,8 +1,8 @@
-public class Scarabe implements Predateur{
+public class Guepe implements Predateur{
     int puissance;
-    final int MIN = 100;
-    final int MAX = 350;
-    public Scarabe() {
+    final int MIN = 700;
+    final int MAX = 1200;
+    public Guepe() {
         this.puissance = (int)(Math.random()*(MAX-MIN+1)+MIN);
     }
 
