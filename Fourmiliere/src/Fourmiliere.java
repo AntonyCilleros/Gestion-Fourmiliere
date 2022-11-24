@@ -9,5 +9,11 @@ public class Fourmiliere {
     int nbLarves;
     ArrayList<GroupeFourmies> groupesFourmies;
 
+    public int getNbNourriture() {
+        return nbNourriture;
+    }
 
+    public void setNbNourriture(int nbNourriture) {
+        this.nbNourriture = nbNourriture;
+    }
 }
