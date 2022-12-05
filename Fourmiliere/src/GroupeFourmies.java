@@ -11,6 +11,11 @@ public class GroupeFourmies {
         this.nbMaxFourmies = nbMaxFourmies;
         this.nbMinFourmies = nbMinFourmies;
     }
+    public GroupeFourmies(int satiete, int nbFourmies, int nbMinFourmies) {
+        this.satiete = satiete;
+        this.nbFourmies = nbFourmies;
+        this.nbMinFourmies = nbMinFourmies;
+    }
 
     public void meurt(Fourmies ... fourmies) {
         fourmiliere.setNbNourriture(fourmiliere.getNbNourriture()+10);

@@ -30,7 +30,8 @@ public class Main {
     }
 
     public static void main(String[] args){
-        Fourmiliere fourmiliere = new Fourmiliere();
+        Fourmiliere fourmiliere = new Fourmiliere(new Reine(60),100);
+        fourmiliere.addGroupeFourmies(new GroupeSoldat());
         Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
         int timeinterval = 1 * 1000; //timer executes every 10 seconds

@@ -8,5 +8,4 @@ public class GroupeAventuriere extends GroupeFourmies {
         NourritureTransporte = nourritureTransporte;
     }
 
-    public void
 }
