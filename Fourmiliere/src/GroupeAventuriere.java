@@ -7,5 +7,4 @@ public class GroupeAventuriere extends GroupeFourmies {
         this.maxNourritureTransport = maxNourritureTransport;
         NourritureTransporte = nourritureTransporte;
     }
-
 }

@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="GUI">
+  <grid id="27dc6" binding="panelMain" layout-manager="GridLayoutManager" row-count="10" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="638" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="e5853" class="javax.swing.JLabel" binding="nombreDeFourmiesLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nombre de fourmies :"/>
+        </properties>
+      </component>
+      <component id="26708" class="javax.swing.JLabel" binding="nourritureLabel">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nourriture :"/>
+        </properties>
+      </component>
+      <component id="dd8bf" class="javax.swing.JLabel" binding="forceDeLaFourmilliereLabel">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Force de la fourmillière :"/>
+        </properties>
+      </component>
+      <component id="4190d" class="javax.swing.JLabel" binding="nombreDeLarvesLabel">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nombre de larves :"/>
+        </properties>
+      </component>
+      <component id="836bd" class="javax.swing.JLabel" binding="soldatLabel">
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Soldat : "/>
+        </properties>
+      </component>
+      <component id="177b0" class="javax.swing.JLabel" binding="aventurieresLabel">
+        <constraints>
+          <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Aventurières :"/>
+        </properties>
+      </component>
+      <component id="ba37b" class="javax.swing.JLabel" binding="nourricieresLabel">
+        <constraints>
+          <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nourricières :"/>
+        </properties>
+      </component>
+      <component id="758fa" class="javax.swing.JLabel" binding="infoAssaillantLabel">
+        <constraints>
+          <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=""/>
+        </properties>
+      </component>
+      <component id="33a31" class="javax.swing.JLabel" binding="typeDeLEnvahisseurLabel">
+        <constraints>
+          <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Type de l'envahisseur :"/>
+        </properties>
+      </component>
+      <component id="572ba" class="javax.swing.JLabel" binding="forceTotalLabel">
+        <constraints>
+          <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Force total :"/>
+        </properties>
+      </component>
+      <component id="d0a27" class="javax.swing.JLabel" binding="nbSoldatLabel">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value=" nombre Soldat :"/>
+        </properties>
+      </component>
+      <component id="48bd9" class="javax.swing.JLabel" binding="nbNourriciereLabel">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="nombre Nourricière :"/>
+        </properties>
+      </component>
+      <component id="8e7e5" class="javax.swing.JLabel" binding="nombreAventurieresLabel">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="nombre Aventurières :"/>
+        </properties>
+      </component>
+      <component id="58db7" class="javax.swing.JLabel" binding="tempsPasseLabel">
+        <constraints>
+          <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Temps passé :"/>
+        </properties>
+      </component>
+      <component id="33dc2" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Chemins disponible :"/>
+        </properties>
+      </component>
+      <component id="39393" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="9" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Nourriture en transport : 25"/>
+        </properties>
+      </component>
+      <component id="75aca" class="javax.swing.JButton" binding="pauseButton" default-binding="true">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="pause"/>
+        </properties>
+      </component>
+      <component id="6c71e" class="javax.swing.JButton" binding="creerUnNouveauCheminButton">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Créer un nouveau chemin"/>
+        </properties>
+      </component>
+      <component id="8294b" class="javax.swing.JButton" binding="moinsSoldatButton">
+        <constraints>
+          <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="-"/>
+        </properties>
+      </component>
+      <component id="273ab" class="javax.swing.JButton" binding="plusSoldatButton">
+        <constraints>
+          <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="+"/>
+        </properties>
+      </component>
+      <component id="211ce" class="javax.swing.JButton" binding="plusAventurieresButton">
+        <constraints>
+          <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="+"/>
+        </properties>
+      </component>
+      <component id="5e6a0" class="javax.swing.JButton" binding="PlusNourricieresButton">
+        <constraints>
+          <grid row="6" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="+"/>
+        </properties>
+      </component>
+      <component id="3e217" class="javax.swing.JButton" binding="moinsAventurieresButton">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="-"/>
+        </properties>
+      </component>
+      <component id="7a8b2" class="javax.swing.JButton" binding="moinsNourricieresButton">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="-"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
