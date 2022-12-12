@@ -1,7 +1,11 @@
 public class GroupeSoldat extends GroupeFourmies {
+    int puissance;
 
-    public GroupeSoldat(int satiete, int nbFourmies, int nbMinFourmies) {
-        super(satiete, nbFourmies, nbMinFourmies);
+    public GroupeSoldat() {
+
     }
 
+    public int getPuissance() {
+        return puissance*nbFourmies;
+    }
 }

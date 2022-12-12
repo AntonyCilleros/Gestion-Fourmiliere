@@ -2,14 +2,12 @@ public class Fourmies {
     int dureeDeVie;
     Sexe sexe;
 
-    public Fourmies(int dureeDeVie, Sexe sexe) {
-        this.dureeDeVie = dureeDeVie;
+    public Fourmies(Sexe sexe) {
         this.sexe = sexe;
     }
 
-    public void seReproduire() {
-        if (this.sexe == Sexe.MALE) {
-            Larve larve = new Larve();
-        }
+    public Fourmies() {
+
     }
+
 }

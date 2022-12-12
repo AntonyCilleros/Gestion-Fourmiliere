@@ -26,6 +26,20 @@ public class GUI extends JFrame{
     private JLabel aventurieresLabel;
     private JLabel nourricieresLabel;
     private JButton creerUnNouveauCheminButton;
+    public JLabel nbFourmiesLabel;
+    private JLabel nbNourritureLabel;
+    private JLabel puissanceLabel;
+    public JLabel nbLarves;
+    private JLabel partSoldats;
+    private JLabel partAventurieres;
+    private JLabel partNourricieres;
+    private JLabel typeEnvahisseur;
+    private JLabel nbForceTotal;
+    private JLabel soldatTotal;
+    private JLabel NourricieresTotal;
+    private JLabel aventurieresTotal;
+    public JLabel TempsPasseValeur;
+    private JLabel nbNourritureEnTransport;
 
     public GUI() {
         pauseButton.addActionListener(new ActionListener() {
