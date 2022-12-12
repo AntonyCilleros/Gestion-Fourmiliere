@@ -1,20 +1,9 @@
 public class GroupeFourmies {
     int satiete;
-    int nbFourmies;
-    int nbMaxFourmies;
-    int nbMinFourmies;
+    int nbFourmies = 2;
     Fourmiliere fourmiliere;
 
-    public GroupeFourmies(int satiete, int nbFourmies, int nbMaxFourmies, int nbMinFourmies) {
-        this.satiete = satiete;
-        this.nbFourmies = nbFourmies;
-        this.nbMaxFourmies = nbMaxFourmies;
-        this.nbMinFourmies = nbMinFourmies;
-    }
-    public GroupeFourmies(int satiete, int nbFourmies, int nbMinFourmies) {
-        this.satiete = satiete;
-        this.nbFourmies = nbFourmies;
-        this.nbMinFourmies = nbMinFourmies;
+    public GroupeFourmies() {
     }
 
     public void meurt(Fourmies ... fourmies) {
@@ -34,5 +23,9 @@ public class GroupeFourmies {
     public void manger(int nbNourriture) {
         satiete += nbNourriture;
         fourmiliere.setNbNourriture(fourmiliere.getNbNourriture()-nbNourriture);
+    }
+
+    public int getNbFourmies() {
+        return nbFourmies;
     }
 }

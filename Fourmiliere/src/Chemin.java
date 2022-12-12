@@ -5,9 +5,9 @@ public class Chemin {
 
 
 
-   // public Chemin() {
-    //    Points.addAll(Point.UN,Point.DEUX);
-  //  }
+    public Chemin() {
+        //Points.addAll(Point.UN,Point.DEUX);
+    }
 
 
 }
