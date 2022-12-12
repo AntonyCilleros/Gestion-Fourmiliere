@@ -1,5 +1,5 @@
 public class GroupeSoldat extends GroupeFourmies {
-    int puissance;
+    int puissance = 1;
 
     public GroupeSoldat() {
 

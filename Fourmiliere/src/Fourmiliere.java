@@ -23,7 +23,7 @@ public class Fourmiliere {
         this.nbNourriture = nbNourriture;
     }
 
-    public int refreshPuissance() {
+    public int getPuissance() {
         return groupeSoldat.getPuissance();
     }
 
