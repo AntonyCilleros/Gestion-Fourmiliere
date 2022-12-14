@@ -31,14 +31,14 @@ public class test {
                 int condamne = new Random().nextInt(total - 1 + 1) + 1;
                 if (condamne > fourmiliere.getNbAventuriere()){
                     if (condamne > fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere()){
-                        fourmiliere.groupeSoldat.nbFourmies -= 1;
+                        fourmiliere.groupeFourmies.groupeSoldat.nbSoldat -= 1;
                     }
                     else {
-                        fourmiliere.groupeNourrice.nbFourmies -= 1;
+                        fourmiliere.groupeFourmies.groupeNourrice.nbNourrice -= 1;
                     }
                 }
                 else {
-                    fourmiliere.groupeAventuriere.nbFourmies -= 1;
+                    fourmiliere.groupeFourmies.groupeAventuriere.nbAventuriere -= 1;
                 }
             }
         }
@@ -55,9 +55,9 @@ public class test {
     }
 
     public static void main(String[] args){
-        Fourmiliere fourmiliere = new Fourmiliere(new Reine());
-        fourmiliere.groupeSoldat.nbFourmies = 200;
-        fourmiliere.groupeAventuriere.nbFourmies = 1500;
+        Fourmiliere fourmiliere = new Fourmiliere(new Reine(), new GroupeFourmies(new GroupeSoldat(),new GroupeNourrice(),new GroupeAventuriere()));
+        fourmiliere.groupeFourmies.groupeSoldat.nbSoldat = 200;
+        fourmiliere.groupeFourmies.groupeAventuriere.nbAventuriere = 1500;
         Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
         int timeinterval = 1 * 1000; //timer executes every 10 seconds
@@ -66,7 +66,7 @@ public class test {
             public void run() {
                 //This code is executed at every interval defined by timeinterval (eg 10 seconds)
                 //And starts after x milliseconds defined by begin.
-                System.out.println(fourmiliere.groupeAventuriere.nbFourmies + " | " + fourmiliere.groupeNourrice.nbFourmies + " | " + fourmiliere.groupeSoldat.nbFourmies);
+                System.out.println(fourmiliere.groupeFourmies.groupeAventuriere.nbAventuriere + " | " + fourmiliere.groupeFourmies.groupeNourrice.nbNourrice + " | " + fourmiliere.groupeFourmies.groupeSoldat.nbSoldat);
                 if (Math.random() < 0.5) evenement(fourmiliere);
             }
         },begin, timeinterval);

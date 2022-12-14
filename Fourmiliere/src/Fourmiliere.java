@@ -2,17 +2,14 @@ import java.util.ArrayList;
 
 public class Fourmiliere {
     Reine reine;
-    int nbNourriture;
+    int nbNourriture = 20;
     int nbLarves = 0;
-    GroupeSoldat groupeSoldat;
-    GroupeNourrice groupeNourrice;
-    GroupeAventuriere groupeAventuriere;
 
-    public Fourmiliere(Reine reine) {
+    GroupeFourmies groupeFourmies;
+
+    public Fourmiliere(Reine reine, GroupeFourmies groupeFourmies) {
         this.reine = reine;
-        this.groupeAventuriere = new GroupeAventuriere();
-        this.groupeNourrice = new GroupeNourrice();
-        this.groupeSoldat = new GroupeSoldat();
+        this.groupeFourmies = groupeFourmies;
     }
 
     public int getNbNourriture() {
@@ -24,11 +21,11 @@ public class Fourmiliere {
     }
 
     public int getPuissance() {
-        return groupeSoldat.getPuissance();
+        return groupeFourmies.groupeAventuriere.getPuissance() + groupeFourmies.groupeSoldat.getPuissance() + groupeFourmies.groupeNourrice.getPuissance();
     }
 
     public int getNombreFourmies() {
-        return getNbSoldat() + getNbNourriciere() + getNbAventuriere();
+        return groupeFourmies.getNbFourmies();
     }
 
     public void setNbLarves(){
@@ -40,19 +37,19 @@ public class Fourmiliere {
     }
 
     public int getNbSoldat() {
-        return groupeSoldat.getNbFourmies();
+        return groupeFourmies.groupeSoldat.getNbSoldat();
     }
 
     public int getNbNourriciere() {
-        return groupeNourrice.getNbFourmies();
+        return groupeFourmies.groupeNourrice.getNbNourrice();
     }
 
     public int getNbAventuriere() {
-        return groupeAventuriere.getNbFourmies();
+        return groupeFourmies.groupeAventuriere.getNbAventuriere();
     }
 
     public void ajoutNourriture() {
-        setNbNourriture(getNbAventuriere());  // récupere bouffe par rapport au nombre d'aventurieres
+        setNbNourriture(nbNourriture += getNbAventuriere()*3);  // récupere bouffe par rapport au nombre d'aventurieres
     }
 
     @Override
