@@ -28,7 +28,7 @@ public class GUI extends JFrame{
     private JButton creerUnNouveauCheminButton;
     public JLabel nbFourmiesLabel;
     public JLabel nbNourritureLabel;
-    private JLabel puissanceLabel;
+    public JLabel puissanceLabel;
     public JLabel nbLarves;
     public JLabel partSoldats;
     public JLabel partAventurieres;

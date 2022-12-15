@@ -47,6 +47,7 @@ public class main implements Runnable{
         Affiche.NourricieresTotal.setText(String.valueOf(fourmiliere.getNbNourriciere()));
         Affiche.aventurieresTotal.setText(String.valueOf(fourmiliere.getNbAventuriere()));
         Affiche.nbNourritureLabel.setText(String.valueOf(fourmiliere.getNbNourriture()));
+        Affiche.puissanceLabel.setText(String.valueOf(fourmiliere.getPuissance()));
         if (winterIsComing > 0) Affiche.HiverLabel.setText("Winter is coming!");
         else if (hiver > 0) Affiche.HiverLabel.setText("C'est l'hiver");
         else Affiche.HiverLabel.setText("");
@@ -54,6 +55,7 @@ public class main implements Runnable{
 
     public static void creerFourmie() throws InterruptedException {
         if(temps != 0) {
+            fourmiliere.groupeFourmies.meurtDeFaim(fourmiliere);
             if (temps % 5 == 0) {
                 fourmiliere.groupeFourmies.naissance(fourmiliere, Affiche.probaSoldats, Affiche.probaNourrice, Affiche.probaAventuriere);
             }
@@ -61,9 +63,9 @@ public class main implements Runnable{
             if (hiver == 0) fourmiliere.ajoutNourriture(3);
             else fourmiliere.ajoutNourriture(1);
             fourmiliere.groupeFourmies.manger(fourmiliere);
-            /*if(temps % 10 == 0){
-                fourmiliere.groupeFourmies.meurt();
-            }*/
+            if(temps % 10 == 0){
+                fourmiliere.groupeFourmies.meurtDeVieillesse(fourmiliere);
+            }
         }
     }
 

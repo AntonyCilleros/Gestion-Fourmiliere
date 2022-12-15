@@ -1,5 +1,9 @@
+import java.util.Random;
+
 public class GroupeFourmies {
     int nbFourmies;
+
+    int derniereFourmis;
     Fourmiliere fourmiliere;
     GroupeSoldat groupeSoldat;
     GroupeAventuriere groupeAventuriere;
@@ -12,18 +16,57 @@ public class GroupeFourmies {
     }
 
 
-    public void meurt() {
+    public void meurtDeVieillesse(Fourmiliere fourmilieres) {
+        for (int i=0; i < derniereFourmis; ++i){
+            int condamne = new Random().nextInt(fourmilieres.getNombreFourmies() - 1 + 1) + 1;
+            if (condamne > fourmilieres.getNbAventuriere()){
+                if (condamne > fourmilieres.getNbAventuriere() + fourmilieres.getNbNourriciere()){
+                    fourmilieres.groupeFourmies.groupeSoldat.nbSoldat -= 1;
+                    fourmilieres.setNbNourriture(fourmilieres.getNbNourriture()+1);
+                }
+                else {
+                    fourmilieres.groupeFourmies.groupeNourrice.nbNourrice -= 1;
+                    fourmilieres.setNbNourriture(fourmilieres.getNbNourriture()+1);
+                }
+            }
+            else {
+                fourmilieres.groupeFourmies.groupeAventuriere.nbAventuriere -= 1;
+                fourmilieres.setNbNourriture(fourmilieres.getNbNourriture()+1);
+            }
+        }
+    }
 
-        fourmiliere.setNbNourriture(fourmiliere.getNbNourriture()+1);
+    public void meurtDeFaim(Fourmiliere fourmilieres) {
+        if(fourmilieres.nbNourriture <= 0) {
+            int fourmisFamine = (int) (nbFourmies * 0.1);
+            System.out.println(fourmisFamine);
+            for (int i = 0; i < fourmisFamine; ++i) {
+                int condamne = new Random().nextInt(fourmilieres.getNombreFourmies() - 1 + 1) + 1;
+                if (condamne > fourmilieres.getNbAventuriere()) {
+                    if (condamne > fourmilieres.getNbAventuriere() + fourmilieres.getNbNourriciere()) {
+                        fourmilieres.groupeFourmies.groupeSoldat.nbSoldat -= 1;
+                        fourmilieres.setNbNourriture(fourmilieres.getNbNourriture() + 1);
+                    } else {
+                        fourmilieres.groupeFourmies.groupeNourrice.nbNourrice -= 1;
+                        fourmilieres.setNbNourriture(fourmilieres.getNbNourriture() + 1);
+                    }
+                } else {
+                    fourmilieres.groupeFourmies.groupeAventuriere.nbAventuriere -= 1;
+                    fourmilieres.setNbNourriture(fourmilieres.getNbNourriture() + 1);
+                }
+            }
+        }
     }
 
     public void naissance(Fourmiliere fourmilieres, double soldat, double nourrice, double aventuriere) {
         if(groupeNourrice.getNbNourrice() >= fourmilieres.nbLarves){
+            derniereFourmis = fourmilieres.nbLarves;
             groupeAventuriere.nbAventuriere += fourmilieres.nbLarves * aventuriere;
             groupeSoldat.nbSoldat += fourmilieres.nbLarves * soldat;
             groupeNourrice.nbNourrice += fourmilieres.nbLarves * nourrice;
         }
         else {
+            derniereFourmis = groupeNourrice.nbNourrice;
             groupeAventuriere.nbAventuriere += groupeNourrice.nbNourrice * aventuriere;
             groupeSoldat.nbSoldat += groupeNourrice.nbNourrice * soldat;
             groupeNourrice.nbNourrice += groupeNourrice.nbNourrice * nourrice;
