@@ -32,9 +32,9 @@ De manière aléatoire un envahisseur viendra mettre sans dessus-dessous la four
 - Scarabé (10-35 de puissance)
 - Mante religieuse (70-100 de puissance)
 - Guêpe (70-120 de puissance)
-- Terminator (100 000-1 000 000 de puissance, impossible)
+- Terminator (10 000-100 000 de puissance, impossible)
 
-Pour se défendre de ces envahisseurs la fourmilière doit avoir une puissance équivalente ou supérieure à celle de l’envahisseur (d’où l’utilité des soldats). Si il s’avère que la fourmilière est moins puissante que l’envahisseur alors celle ci perdra une quantité de fourmis équivalent à 70-80% de toutes les fourmis, si la fourmilière gagne elle perdra uniquement entre 5-10% de son nombre.
+Pour se défendre de ces envahisseurs la fourmilière doit avoir une puissance équivalente ou supérieure à celle de l’envahisseur (d’où l’utilité des soldats). Si il s’avère que la fourmilière est moins puissante que l’envahisseur alors celle ci perdra une quantité de fourmis équivalent à 50-70% de toutes les fourmis, si la fourmilière gagne elle perdra uniquement entre 5-10% de son nombre.
 
 ### L'hiver
 
