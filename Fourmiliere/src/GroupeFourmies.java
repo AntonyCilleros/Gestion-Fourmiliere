@@ -12,14 +12,22 @@ public class GroupeFourmies {
     }
 
 
-    public void meurt(Fourmies ... fourmies) {
-        fourmiliere.setNbNourriture(fourmiliere.getNbNourriture()+10);
+    public void meurt() {
+
+        fourmiliere.setNbNourriture(fourmiliere.getNbNourriture()+1);
     }
 
     public void naissance(Fourmiliere fourmilieres) {
-        groupeAventuriere.nbAventuriere += fourmilieres.nbLarves / 3;
-        groupeSoldat.nbSoldat += fourmilieres.nbLarves / 3;
-        groupeNourrice.nbNourrice += fourmilieres.nbLarves / 3;
+        if(groupeNourrice.getNbNourrice() >= fourmilieres.nbLarves){
+            groupeAventuriere.nbAventuriere += fourmilieres.nbLarves / 3;
+            groupeSoldat.nbSoldat += fourmilieres.nbLarves / 3;
+            groupeNourrice.nbNourrice += fourmilieres.nbLarves / 3;
+        }
+        else {
+            groupeAventuriere.nbAventuriere += groupeNourrice.nbNourrice / 3;
+            groupeSoldat.nbSoldat += groupeNourrice.nbNourrice / 3;
+            groupeNourrice.nbNourrice += groupeNourrice.nbNourrice / 3;
+        }
         fourmilieres.nbLarves = 0;
     }
 

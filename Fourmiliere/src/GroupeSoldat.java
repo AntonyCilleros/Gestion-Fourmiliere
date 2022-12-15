@@ -1,12 +1,12 @@
 public class GroupeSoldat{
 
-    int nbSoldat = 2;
+    int nbSoldat = 10;
 
     public GroupeSoldat() {
     }
 
     public int getPuissance() {
-        return nbSoldat*2;
+        return nbSoldat;
     }
 
     public int getNbSoldat() {

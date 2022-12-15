@@ -2,8 +2,8 @@ import java.util.ArrayList;
 
 public class Fourmiliere {
     Reine reine;
-    int nbNourriture = 20;
-    int nbLarves = 0;
+    int nbNourriture = 100;
+    int nbLarves = 10;
 
     GroupeFourmies groupeFourmies;
 
@@ -21,7 +21,7 @@ public class Fourmiliere {
     }
 
     public int getPuissance() {
-        return groupeFourmies.groupeAventuriere.getPuissance() + groupeFourmies.groupeSoldat.getPuissance() + groupeFourmies.groupeNourrice.getPuissance();
+        return groupeFourmies.groupeSoldat.getPuissance();
     }
 
     public int getNombreFourmies() {

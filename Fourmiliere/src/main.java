@@ -51,11 +51,16 @@ public class main implements Runnable{
     }
 
     public static void creerFourmie() throws InterruptedException {
-        fourmiliere.setNbLarves();
-        fourmiliere.ajoutNourriture();
-        fourmiliere.groupeFourmies.manger(fourmiliere);
-        if(temps % 5 == 1){
-            fourmiliere.groupeFourmies.naissance(fourmiliere);
+        if(temps != 0) {
+            if (temps % 5 == 0) {
+                fourmiliere.groupeFourmies.naissance(fourmiliere);
+            }
+            fourmiliere.setNbLarves();
+            fourmiliere.ajoutNourriture();
+            fourmiliere.groupeFourmies.manger(fourmiliere);
+            /*if(temps % 10 == 0){
+                fourmiliere.groupeFourmies.meurt();
+            }*/
         }
     }
 
@@ -127,7 +132,7 @@ public class main implements Runnable{
 
         java.util.Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
-        int timeinterval = 1 * 1000; //timer executes every 1 seconds
+        int timeinterval = 3 * 1000; //timer executes every 1 seconds
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {

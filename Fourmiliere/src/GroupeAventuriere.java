@@ -1,12 +1,8 @@
 public class GroupeAventuriere{
 
-    int nbAventuriere = 2;
+    int nbAventuriere = 10;
 
     public GroupeAventuriere() {
-    }
-
-    public int getPuissance(){
-        return nbAventuriere;
     }
 
     public int getNbAventuriere() {
