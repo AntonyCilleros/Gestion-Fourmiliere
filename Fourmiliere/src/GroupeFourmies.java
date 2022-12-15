@@ -17,16 +17,16 @@ public class GroupeFourmies {
         fourmiliere.setNbNourriture(fourmiliere.getNbNourriture()+1);
     }
 
-    public void naissance(Fourmiliere fourmilieres) {
+    public void naissance(Fourmiliere fourmilieres, double soldat, double nourrice, double aventuriere) {
         if(groupeNourrice.getNbNourrice() >= fourmilieres.nbLarves){
-            groupeAventuriere.nbAventuriere += fourmilieres.nbLarves / 3;
-            groupeSoldat.nbSoldat += fourmilieres.nbLarves / 3;
-            groupeNourrice.nbNourrice += fourmilieres.nbLarves / 3;
+            groupeAventuriere.nbAventuriere += fourmilieres.nbLarves * aventuriere;
+            groupeSoldat.nbSoldat += fourmilieres.nbLarves * soldat;
+            groupeNourrice.nbNourrice += fourmilieres.nbLarves * nourrice;
         }
         else {
-            groupeAventuriere.nbAventuriere += groupeNourrice.nbNourrice / 3;
-            groupeSoldat.nbSoldat += groupeNourrice.nbNourrice / 3;
-            groupeNourrice.nbNourrice += groupeNourrice.nbNourrice / 3;
+            groupeAventuriere.nbAventuriere += groupeNourrice.nbNourrice * aventuriere;
+            groupeSoldat.nbSoldat += groupeNourrice.nbNourrice * soldat;
+            groupeNourrice.nbNourrice += groupeNourrice.nbNourrice * nourrice;
         }
         fourmilieres.nbLarves = 0;
     }

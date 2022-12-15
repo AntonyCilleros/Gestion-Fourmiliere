@@ -55,7 +55,7 @@ public class main implements Runnable{
     public static void creerFourmie() throws InterruptedException {
         if(temps != 0) {
             if (temps % 5 == 0) {
-                fourmiliere.groupeFourmies.naissance(fourmiliere);
+                fourmiliere.groupeFourmies.naissance(fourmiliere, Affiche.probaSoldats, Affiche.probaNourrice, Affiche.probaAventuriere);
             }
             fourmiliere.setNbLarves();
             if (hiver == 0) fourmiliere.ajoutNourriture(3);
