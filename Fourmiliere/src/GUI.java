@@ -30,16 +30,19 @@ public class GUI extends JFrame{
     public JLabel nbNourritureLabel;
     private JLabel puissanceLabel;
     public JLabel nbLarves;
-    private JLabel partSoldats;
-    private JLabel partAventurieres;
-    private JLabel partNourricieres;
+    public JLabel partSoldats;
+    public JLabel partAventurieres;
+    public JLabel partNourricieres;
     private JLabel typeEnvahisseur;
     public JLabel nbForceTotal;
     public JLabel soldatTotal;
     public JLabel NourricieresTotal;
     public JLabel aventurieresTotal;
     public JLabel TempsPasseValeur;
-    private JLabel nbNourritureEnTransport;
+
+    public double probaSoldats = 0.33;
+    public double probaAventuriere = 0.33;
+    public double probaNourrice = 0.33;
 
     public GUI() {
         pauseButton.addActionListener(new ActionListener() {
@@ -48,46 +51,62 @@ public class GUI extends JFrame{
                 // met en pause le temps
             }
         });
-        creerUnNouveauCheminButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // creer un nouveau chemin pas sur qu'on le garde
-            }
-        });
         moinsSoldatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // baisse la proba de soldats
+                if(probaSoldats <= 0.1) {
+                    probaSoldats -= 0.1;
+                    probaNourrice += 0.05;
+                    probaAventuriere += 0.05;
+                }
             }
         });
         moinsAventurieresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // baisse la proba d'aventurieres
-            }
+                if(probaAventuriere <= 0.1) {
+                    probaAventuriere -= 0.1;
+                    probaNourrice += 0.05;
+                    probaSoldats += 0.05;
+                }            }
         });
         moinsNourricieresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //baisse la porba de nourricieres
-            }
+                if(probaNourrice <= 0.1) {
+                    probaNourrice -= 0.1;
+                    probaSoldats+= 0.05;
+                    probaAventuriere += 0.05;
+                }            }
         });
         plusSoldatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //augmente la proba de soldats
+                if (probaAventuriere >= 0.05 && probaNourrice >= 0.05) {
+                    probaSoldats += 0.1;
+                    probaAventuriere -= 0.05;
+                    probaNourrice -= 0.05;
+                }
             }
         });
         plusAventurieresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //augmente la proba d'aventurieres
+                if (probaSoldats >= 0.05 && probaNourrice >= 0.05) {
+                    probaAventuriere += 0.1;
+                    probaSoldats -= 0.05;
+                    probaNourrice -= 0.05;
+                }
             }
         });
         PlusNourricieresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //augmente la proba de nourricieres
+                if (probaAventuriere >= 0.05 && probaSoldats >= 0.05) {
+                    probaNourrice += 0.1;
+                    probaAventuriere -= 0.05;
+                    probaSoldats -= 0.05;
+                }
             }
         });
         this.setContentPane(this.panelMain);

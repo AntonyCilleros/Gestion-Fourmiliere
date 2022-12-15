@@ -120,20 +120,12 @@
           <text value="Temps passé :"/>
         </properties>
       </component>
-      <component id="39393" class="javax.swing.JLabel">
-        <constraints>
-          <grid row="9" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Nourriture en transport :"/>
-        </properties>
-      </component>
       <component id="75aca" class="javax.swing.JButton" binding="pauseButton" default-binding="true">
         <constraints>
           <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="pause"/>
+          <text value="THE WORLD !"/>
         </properties>
       </component>
       <component id="8294b" class="javax.swing.JButton" binding="moinsSoldatButton">
@@ -286,22 +278,6 @@
         </constraints>
         <properties>
           <text value=""/>
-        </properties>
-      </component>
-      <component id="3a7f4" class="javax.swing.JLabel" binding="nbNourritureEnTransport">
-        <constraints>
-          <grid row="9" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value=""/>
-        </properties>
-      </component>
-      <component id="3de72" class="javax.swing.JButton" binding="creerUnNouveauCheminButton">
-        <constraints>
-          <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Créer un nouveau chemin"/>
         </properties>
       </component>
     </children>

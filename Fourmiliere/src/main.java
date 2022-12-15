@@ -40,14 +40,17 @@ public class main implements Runnable{
     }
 
     public static void gererEcran() throws InterruptedException{
-        Affiche.TempsPasseValeur.setText("" + ++temps);
-        Affiche.nbLarves.setText("" + fourmiliere.getNbLarves());
-        Affiche.nbFourmiesLabel.setText("" + fourmiliere.getNombreFourmies());
-        Affiche.soldatTotal.setText("" + fourmiliere.getNbSoldat());
-        Affiche.NourricieresTotal.setText("" + fourmiliere.getNbNourriciere());
-        Affiche.aventurieresTotal.setText("" + fourmiliere.getNbAventuriere());
-        Affiche.nbNourritureLabel.setText("" + fourmiliere.getNbNourriture());
-        Affiche.nbForceTotal.setText("" + fourmiliere.getPuissance());
+        Affiche.TempsPasseValeur.setText(String.valueOf(++temps));
+        Affiche.nbLarves.setText(String.valueOf(fourmiliere.getNbLarves()));
+        Affiche.nbFourmiesLabel.setText(String.valueOf(fourmiliere.getNombreFourmies()));
+        Affiche.soldatTotal.setText(String.valueOf(fourmiliere.getNbSoldat()));
+        Affiche.NourricieresTotal.setText(String.valueOf(fourmiliere.getNbNourriciere()));
+        Affiche.aventurieresTotal.setText(String.valueOf(fourmiliere.getNbAventuriere()));
+        Affiche.nbNourritureLabel.setText(String.valueOf(fourmiliere.getNbNourriture()));
+        Affiche.nbForceTotal.setText(String.valueOf(fourmiliere.getPuissance()));
+        Affiche.partSoldats.setText(String.valueOf(Affiche.probaSoldats));
+        Affiche.partNourricieres.setText(String.valueOf(Affiche.probaNourrice));
+        Affiche.partAventurieres.setText(String.valueOf(Affiche.probaAventuriere));
     }
 
     public static void creerFourmie() throws InterruptedException {
