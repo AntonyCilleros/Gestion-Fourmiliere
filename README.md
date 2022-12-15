@@ -1,5 +1,11 @@
 # Gestion-Fourmiliere
 
+## Un jeu de gestion d'une fourmilière
+
+Ce projet a pour objectif de réaliser un jeu de gestion de fourmilière en essayant d'être un temps soit peu fidèle à la réalité avec les différents type de fourmis, un système de nourriture et d'évenements aléatoire.
+
+![Image du jeu](imageFourmiliere.PNG)
+
 ## Manuel d'utilisation
 
 Ce jeu de gestion représente une fourmilière. Il s’agit de bien répartir la quantité de chaque type de fourmis afin de préserver la fourmilière et sa reine.
