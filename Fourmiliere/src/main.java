@@ -130,7 +130,7 @@ public class main implements Runnable{
             --hiver;
             System.out.println("Plus que " + hiver + " jours avant la fin de l'hiver");
         }
-        else if (Math.random() < 1) {
+        else if (Math.random() < 0.03) {
             hiver = 10;
             winterIsComing = randomNumberBetween(4,7);
             System.out.println("Winter is coming!");
@@ -154,7 +154,7 @@ public class main implements Runnable{
 
         java.util.Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
-        int timeinterval = 1 * 1000; //timer executes every 1 seconds
+        int timeinterval = 3 * 1000; //timer executes every 1 seconds
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -163,7 +163,7 @@ public class main implements Runnable{
                 try {
                     if (!Affiche.pause) {
                         if (temps >= 10) {
-                            if (Math.random() < 0) ennemie();
+                            if (Math.random() < 0.02) ennemie();
                             else clean();
                             climat(); // Les probabilités se changent dans la fonction
                         }
