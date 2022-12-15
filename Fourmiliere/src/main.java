@@ -130,7 +130,7 @@ public class main implements Runnable{
             --hiver;
             System.out.println("Plus que " + hiver + " jours avant la fin de l'hiver");
         }
-        else if (Math.random() < 0.05) {
+        else if (Math.random() < 1) {
             hiver = 10;
             winterIsComing = randomNumberBetween(4,7);
             System.out.println("Winter is coming!");
@@ -163,7 +163,7 @@ public class main implements Runnable{
                 try {
                     if (!Affiche.pause) {
                         if (temps >= 10) {
-                            if (Math.random() < 0.05) ennemie();
+                            if (Math.random() < 0) ennemie();
                             else clean();
                             climat(); // Les probabilités se changent dans la fonction
                         }

@@ -38,8 +38,7 @@ public class GroupeFourmies {
 
     public void meurtDeFaim(Fourmiliere fourmilieres) {
         if(fourmilieres.nbNourriture <= 0) {
-            int fourmisFamine = (int) (nbFourmies * 0.1);
-            System.out.println(fourmisFamine);
+            int fourmisFamine = (int) (getNbFourmies() * 0.1);
             for (int i = 0; i < fourmisFamine; ++i) {
                 int condamne = new Random().nextInt(fourmilieres.getNombreFourmies() - 1 + 1) + 1;
                 if (condamne > fourmilieres.getNbAventuriere()) {
