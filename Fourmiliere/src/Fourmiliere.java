@@ -48,8 +48,8 @@ public class Fourmiliere {
         return groupeFourmies.groupeAventuriere.getNbAventuriere();
     }
 
-    public void ajoutNourriture() {
-        setNbNourriture(nbNourriture += getNbAventuriere()*3);  // récupere bouffe par rapport au nombre d'aventurieres
+    public void ajoutNourriture(int i) {
+        setNbNourriture(nbNourriture += getNbAventuriere()*i);  // récupere bouffe par rapport au nombre d'aventurieres
     }
 
     @Override

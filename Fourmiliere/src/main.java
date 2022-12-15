@@ -13,6 +13,8 @@ public class main implements Runnable{
     static GroupeFourmies groupeFourmies = new GroupeFourmies(new GroupeSoldat(),new GroupeNourrice(),new GroupeAventuriere());
     static Fourmiliere fourmiliere = new Fourmiliere(reine, groupeFourmies);
     static int temps = 0;
+    static int hiver = 0;
+    static int winterIsComing = 0;
 
     private static void ManageScreen() throws InterruptedException, InvocationTargetException {
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -56,7 +58,8 @@ public class main implements Runnable{
                 fourmiliere.groupeFourmies.naissance(fourmiliere);
             }
             fourmiliere.setNbLarves();
-            fourmiliere.ajoutNourriture();
+            if (hiver == 0) fourmiliere.ajoutNourriture(3);
+            else fourmiliere.ajoutNourriture(1);
             fourmiliere.groupeFourmies.manger(fourmiliere);
             /*if(temps % 10 == 0){
                 fourmiliere.groupeFourmies.meurt();
@@ -85,14 +88,14 @@ public class main implements Runnable{
                 System.out.println("Toutes les fourmies sont mortes.");
                 while(true);
             }
-            int perte = new Random().nextInt(80 - 70 + 1) + 70;
+            int perte = randomNumberBetween(70,80);
             System.out.println("Ennemi plus fort");
             System.out.println("Avant attaque : " + fourmiliere.getNombreFourmies());
             mort(fourmiliere.getNombreFourmies()*(perte/100));
             System.out.println("Après attaque : " + fourmiliere.getNombreFourmies());
         }
         else {
-            int perte = new Random().nextInt(10 - 5 + 1) + 5;
+            int perte = randomNumberBetween(5,10);
             System.out.println("Fourmies gagnent");
             System.out.println("Avant attaque : " + fourmiliere.getNombreFourmies());
             mort(perte);
@@ -102,7 +105,7 @@ public class main implements Runnable{
 
     private static void mort(int perte){
         for (int i=0; i < perte; ++i){
-            int condamne = new Random().nextInt(fourmiliere.getNombreFourmies() - 1 + 1) + 1;
+            int condamne = randomNumberBetween(1, fourmiliere.getNombreFourmies());
             if (condamne > fourmiliere.getNbAventuriere()){
                 if (condamne > fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere()){
                     fourmiliere.groupeFourmies.groupeSoldat.nbSoldat -= 1;
@@ -117,11 +120,22 @@ public class main implements Runnable{
         }
     }
 
-    private static void evenement(){
-        final double evenement = (Math.random());
-        if (evenement < 0.5) ennemie();
-        else if (evenement < 0.75) System.out.println("Un évènement de type climat se produit wallah");
-        else System.out.println("C'est l'hiver");
+    private static void climat(){
+        if (winterIsComing != 0) --winterIsComing;
+        else if (hiver != 0) {
+            if (hiver == 10) System.out.println("C'est l'hiver !");
+            --hiver;
+            System.out.println("Plus que " + hiver + " jours avant la fin de l'hiver");
+        }
+        else if (Math.random() < 0.05) {
+            hiver = 10;
+            winterIsComing = randomNumberBetween(4,7);
+            System.out.println("Winter is coming!");
+        }
+    }
+
+    private static int randomNumberBetween(int min, int max){
+        return new Random().nextInt(max - min + 1) + min;
     }
 
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
@@ -132,14 +146,15 @@ public class main implements Runnable{
 
         java.util.Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
-        int timeinterval = 3 * 1000; //timer executes every 1 seconds
+        int timeinterval = 1 * 1000; //timer executes every 1 seconds
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 //This code is executed at every interval defined by timeinterval (eg 10 seconds)
                 //And starts after x milliseconds defined by begin.
                 try {
-                    if (temps >= 5 && Math.random() < 1) evenement();
+                    if (temps >= 10 && Math.random() < 0.2) ennemie();
+                    climat(); // Les probabilités se changent dans la fonction
                     ManageScreen();
                     creerFourmie();
                 } catch (InterruptedException e) {
