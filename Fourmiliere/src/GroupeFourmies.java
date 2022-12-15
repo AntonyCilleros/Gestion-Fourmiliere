@@ -32,7 +32,12 @@ public class GroupeFourmies {
     }
 
     public void manger(Fourmiliere fourmilieres) {
-        fourmilieres.setNbNourriture(fourmilieres.getNbNourriture()- fourmilieres.getNombreFourmies());
+        if (fourmilieres.getNbNourriture() > 0) {
+            if (fourmilieres.getNbNourriture() < fourmilieres.getNombreFourmies()) {
+                fourmilieres.setNbNourriture(0);
+            }
+            else fourmilieres.setNbNourriture(fourmilieres.getNbNourriture() - fourmilieres.getNombreFourmies());
+        }
     }
 
     public int getNbFourmies() {

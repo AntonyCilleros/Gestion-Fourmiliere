@@ -11,7 +11,7 @@ public class GUI extends JFrame{
     private JLabel soldatLabel;
     private JLabel infoAssaillantLabel;
     private JLabel typeDeLEnvahisseurLabel;
-    private JLabel forceTotalLabel;
+    private JLabel forceDeLEnvahisseurLabel;
     private JLabel nbSoldatLabel;
     private JLabel nbNourriciereLabel;
     private JLabel nombreAventurieresLabel;
@@ -33,13 +33,13 @@ public class GUI extends JFrame{
     public JLabel partSoldats;
     public JLabel partAventurieres;
     public JLabel partNourricieres;
-    private JLabel typeEnvahisseur;
-    public JLabel nbForceTotal;
+    public JLabel typeEnvahisseur;
+    public JLabel nbForceEnvahisseur;
     public JLabel soldatTotal;
     public JLabel NourricieresTotal;
     public JLabel aventurieresTotal;
     public JLabel TempsPasseValeur;
-    private JLabel HiverLabel;
+    public JLabel HiverLabel;
 
     public double probaSoldats = 0.33;
     public double probaAventuriere = 0.33;

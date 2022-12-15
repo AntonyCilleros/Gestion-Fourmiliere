@@ -1,7 +1,7 @@
 public class ManteReligieuse implements Predateur{
     int puissance;
-    final int MIN = 700;
-    final int MAX = 1000;
+    final int MIN = 70;
+    final int MAX = 100;
     public ManteReligieuse() {
         this.puissance = (int)(Math.random()*(MAX-MIN+1)+MIN);
     }

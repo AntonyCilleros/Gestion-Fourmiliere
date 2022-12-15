@@ -80,12 +80,12 @@
           <text value="Type de l'envahisseur :"/>
         </properties>
       </component>
-      <component id="572ba" class="javax.swing.JLabel" binding="forceTotalLabel">
+      <component id="572ba" class="javax.swing.JLabel" binding="forceDeLEnvahisseurLabel">
         <constraints>
           <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <text value="Force total :"/>
+          <text value="Force de l'envahisseur :"/>
         </properties>
       </component>
       <component id="d0a27" class="javax.swing.JLabel" binding="nbSoldatLabel">
@@ -240,7 +240,7 @@
           <text value=""/>
         </properties>
       </component>
-      <component id="68418" class="javax.swing.JLabel" binding="nbForceTotal">
+      <component id="68418" class="javax.swing.JLabel" binding="nbForceEnvahisseur">
         <constraints>
           <grid row="9" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>

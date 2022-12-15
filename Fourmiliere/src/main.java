@@ -1,11 +1,8 @@
 import javax.swing.*;
-import java.awt.*;
 import java.lang.reflect.InvocationTargetException;
-import java.time.chrono.ThaiBuddhistEra;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 public class main implements Runnable{
     static GUI Affiche;
@@ -15,6 +12,7 @@ public class main implements Runnable{
     static int temps = 0;
     static int hiver = 0;
     static int winterIsComing = 0;
+    static boolean pause = false;
 
     private static void ManageScreen() throws InterruptedException, InvocationTargetException {
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -42,14 +40,16 @@ public class main implements Runnable{
     }
 
     public static void gererEcran() throws InterruptedException{
-        Affiche.TempsPasseValeur.setText(String.valueOf(++temps));
+        Affiche.TempsPasseValeur.setText(String.valueOf(temps));
         Affiche.nbLarves.setText(String.valueOf(fourmiliere.getNbLarves()));
         Affiche.nbFourmiesLabel.setText(String.valueOf(fourmiliere.getNombreFourmies()));
         Affiche.soldatTotal.setText(String.valueOf(fourmiliere.getNbSoldat()));
         Affiche.NourricieresTotal.setText(String.valueOf(fourmiliere.getNbNourriciere()));
         Affiche.aventurieresTotal.setText(String.valueOf(fourmiliere.getNbAventuriere()));
         Affiche.nbNourritureLabel.setText(String.valueOf(fourmiliere.getNbNourriture()));
-        Affiche.nbForceTotal.setText(String.valueOf(fourmiliere.getPuissance()));
+        if (winterIsComing > 0) Affiche.HiverLabel.setText("Winter is coming!");
+        else if (hiver > 0) Affiche.HiverLabel.setText("C'est l'hiver");
+        else Affiche.HiverLabel.setText("");
     }
 
     public static void creerFourmie() throws InterruptedException {
@@ -83,6 +83,8 @@ public class main implements Runnable{
             ennemie = new Scarabe();
         }
         System.out.println("Une " + ennemie.getClass().getName() + " sauvage apparait ! (puissance : " + ennemie.getPuissance() + ")");
+        Affiche.typeEnvahisseur.setText(ennemie.getClass().getName());
+        Affiche.nbForceEnvahisseur.setText(String.valueOf(ennemie.getPuissance()));
         if (ennemie.getPuissance() > fourmiliere.getPuissance()){
             if (ennemie.getPuissance() >= fourmiliere.getPuissance()*3){
                 System.out.println("Toutes les fourmies sont mortes.");
@@ -138,6 +140,11 @@ public class main implements Runnable{
         return new Random().nextInt(max - min + 1) + min;
     }
 
+    private static void clean(){
+        Affiche.typeEnvahisseur.setText("");
+        Affiche.nbForceEnvahisseur.setText("");
+    }
+
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
         main main = new main();
         Affiche = new GUI();
@@ -153,10 +160,16 @@ public class main implements Runnable{
                 //This code is executed at every interval defined by timeinterval (eg 10 seconds)
                 //And starts after x milliseconds defined by begin.
                 try {
-                    if (temps >= 10 && Math.random() < 0.2) ennemie();
-                    climat(); // Les probabilités se changent dans la fonction
+                    if (!pause) {
+                        if (temps >= 10) {
+                            if (Math.random() < 0.05) ennemie();
+                            else clean();
+                            climat(); // Les probabilités se changent dans la fonction
+                        }
+                        creerFourmie();
+                        ++temps;
+                    }
                     ManageScreen();
-                    creerFourmie();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 } catch (InvocationTargetException e) {
