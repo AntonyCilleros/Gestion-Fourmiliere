@@ -59,6 +59,9 @@ public class GUI extends JFrame{
                     probaSoldats -= 0.1;
                     probaNourrice += 0.05;
                     probaAventuriere += 0.05;
+                    probaSoldats = Math.round(probaSoldats * 100.0) / 100.0;
+                    probaNourrice = Math.round(probaNourrice * 100.0) / 100.0;
+                    probaAventuriere = Math.round(probaAventuriere * 100.0) / 100.0;
                     partSoldats.setText(String.valueOf(probaSoldats));
                     partNourricieres.setText(String.valueOf(probaNourrice));
                     partAventurieres.setText(String.valueOf(probaAventuriere));
@@ -72,6 +75,9 @@ public class GUI extends JFrame{
                     probaAventuriere -= 0.1;
                     probaNourrice += 0.05;
                     probaSoldats += 0.05;
+                    probaSoldats = Math.round(probaSoldats * 100.0) / 100.0;
+                    probaNourrice = Math.round(probaNourrice * 100.0) / 100.0;
+                    probaAventuriere = Math.round(probaAventuriere * 100.0) / 100.0;
                     partNourricieres.setText(String.valueOf(probaNourrice));
                     partSoldats.setText(String.valueOf(probaSoldats));
                     partAventurieres.setText(String.valueOf(probaAventuriere));
@@ -85,6 +91,9 @@ public class GUI extends JFrame{
                     probaNourrice -= 0.1;
                     probaSoldats+= 0.05;
                     probaAventuriere += 0.05;
+                    probaSoldats = Math.round(probaSoldats * 100.0) / 100.0;
+                    probaNourrice = Math.round(probaNourrice * 100.0) / 100.0;
+                    probaAventuriere = Math.round(probaAventuriere * 100.0) / 100.0;
                     partAventurieres.setText(String.valueOf(probaAventuriere));
                     partNourricieres.setText(String.valueOf(probaNourrice));
                     partSoldats.setText(String.valueOf(probaSoldats));
@@ -98,6 +107,9 @@ public class GUI extends JFrame{
                     probaSoldats += 0.1;
                     probaAventuriere -= 0.05;
                     probaNourrice -= 0.05;
+                    probaSoldats = Math.round(probaSoldats * 100.0) / 100.0;
+                    probaNourrice = Math.round(probaNourrice * 100.0) / 100.0;
+                    probaAventuriere = Math.round(probaAventuriere * 100.0) / 100.0;
                     partSoldats.setText(String.valueOf(probaSoldats));
                     partNourricieres.setText(String.valueOf(probaNourrice));
                     partAventurieres.setText(String.valueOf(probaAventuriere));
@@ -111,6 +123,9 @@ public class GUI extends JFrame{
                     probaAventuriere += 0.1;
                     probaSoldats -= 0.05;
                     probaNourrice -= 0.05;
+                    probaSoldats = Math.round(probaSoldats * 100.0) / 100.0;
+                    probaNourrice = Math.round(probaNourrice * 100.0) / 100.0;
+                    probaAventuriere = Math.round(probaAventuriere * 100.0) / 100.0;
                     partAventurieres.setText(String.valueOf(probaAventuriere));
                     partNourricieres.setText(String.valueOf(probaNourrice));
                     partSoldats.setText(String.valueOf(probaSoldats));
@@ -124,6 +139,9 @@ public class GUI extends JFrame{
                     probaNourrice += 0.1;
                     probaAventuriere -= 0.05;
                     probaSoldats -= 0.05;
+                    probaSoldats = Math.round(probaSoldats * 100.0) / 100.0;
+                    probaNourrice = Math.round(probaNourrice * 100.0) / 100.0;
+                    probaAventuriere = Math.round(probaAventuriere * 100.0) / 100.0;
                     partNourricieres.setText(String.valueOf(probaNourrice));
                     partAventurieres.setText(String.valueOf(probaAventuriere));
                     partSoldats.setText(String.valueOf(probaSoldats));
