@@ -9,13 +9,21 @@ public class GroupeFourmies {
     GroupeAventuriere groupeAventuriere;
     GroupeNourrice groupeNourrice;
 
+    /**
+     * Constructeur de la classe GroupeFourmies
+     * @param groupeNourrice
+     * @param groupeSoldat
+     * @param groupeAventuriere
+     */
     public GroupeFourmies(GroupeSoldat groupeSoldat, GroupeNourrice groupeNourrice, GroupeAventuriere groupeAventuriere) {
         this.groupeNourrice = groupeNourrice;
         this.groupeSoldat = groupeSoldat;
         this.groupeAventuriere = groupeAventuriere;
     }
 
-
+    /**
+     * gère la vieillesse et tue les fourmies trop vieilles
+     */
     public void meurtDeVieillesse(Fourmiliere fourmilieres) {
         for (int i=0; i < derniereFourmis; ++i){
             int condamne = new Random().nextInt(fourmilieres.getNombreFourmies() - 1 + 1) + 1;
@@ -36,6 +44,9 @@ public class GroupeFourmies {
         }
     }
 
+    /**
+     * Gère la faim en tuant 10% des fourmies si il n'y a plus de nourriture
+     */
     public void meurtDeFaim(Fourmiliere fourmilieres) {
         if(fourmilieres.nbNourriture <= 0) {
             int fourmisFamine = (int) (getNbFourmies() * 0.1);
@@ -57,6 +68,13 @@ public class GroupeFourmies {
         }
     }
 
+    /**
+     * Fait naître des fourmies en fonctions des paramètres que l'utilisateur à choisi
+     * @param fourmilieres La fourmilière concerné
+     * @param soldat Taux de soldat qui vont naître
+     * @param nourrice Taux de nourrice qui vont naître
+     * @param aventuriere Taux d'aventuriere qui vont naître
+     */
     public void naissance(Fourmiliere fourmilieres, double soldat, double nourrice, double aventuriere) {
         if(groupeNourrice.getNbNourrice() >= fourmilieres.nbLarves){
             derniereFourmis = fourmilieres.nbLarves;
@@ -73,6 +91,9 @@ public class GroupeFourmies {
         fourmilieres.nbLarves = 0;
     }
 
+    /**
+     * Gère le stock de nourriture après que les fourmies aient mangé.
+     */
     public void manger(Fourmiliere fourmilieres) {
         if (fourmilieres.getNbNourriture() > 0) {
             if (fourmilieres.getNbNourriture() < fourmilieres.getNombreFourmies()) {
@@ -82,6 +103,9 @@ public class GroupeFourmies {
         }
     }
 
+    /**
+     * @return le nombre total de fourmie
+     */
     public int getNbFourmies() {
         return groupeAventuriere.getNbAventuriere() + groupeSoldat.getNbSoldat() + groupeNourrice.getNbNourrice();
     }

@@ -47,6 +47,9 @@ public class GUI extends JFrame{
 
     public boolean pause = false;
 
+    /**
+     * Paramètre de l'interface graphique et ses listener
+     */
     public GUI() {
         pauseButton.addActionListener(new ActionListener() {
             @Override

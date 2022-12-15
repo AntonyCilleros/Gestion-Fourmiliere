@@ -15,6 +15,9 @@ public class main implements Runnable{
     static int cdEnnemiPause = 0;
     static int cdEnnemi = 0;
 
+    /**
+     * Fait marcher l'interface graphique
+     */
     private static void ManageScreen() throws InterruptedException, InvocationTargetException {
         SwingUtilities.invokeAndWait(new Runnable() {
             @Override
@@ -40,6 +43,9 @@ public class main implements Runnable{
         }
     }
 
+    /**
+     * Affiche des valeurs que l'on veux communiquer à l'utilisateur par une interface graphique
+     */
     public static void gererEcran() throws InterruptedException{
         Affiche.TempsPasseValeur.setText(String.valueOf(temps));
         Affiche.nbLarves.setText(String.valueOf(fourmiliere.getNbLarves()));
@@ -54,6 +60,10 @@ public class main implements Runnable{
         else Affiche.HiverLabel.setText("");
     }
 
+    /**
+     * Fait vivre et mourrir la fourmilière.
+     * Famine, naissances, larves, nourriture, vieillesse, tout est géré ici.
+     */
     public static void creerFourmie() throws InterruptedException {
         if(temps != 0) {
             fourmiliere.groupeFourmies.meurtDeFaim(fourmiliere);
@@ -70,6 +80,9 @@ public class main implements Runnable{
         }
     }
 
+    /**
+     * Gère les invasions d'ennemies
+     */
     private static void ennemie(){
         cdEnnemiPause = 5;
         cdEnnemi = 5;
@@ -110,6 +123,10 @@ public class main implements Runnable{
         }
     }
 
+    /**
+     * Tue un nombre défini de fourmie provenant de n'importe quel groupe
+     * @param perte Le nombre de fourmie à tuer
+     */
     private static void mort(double perte){
         for (int i=0; i < perte; ++i){
             int condamne = randomNumberBetween(1, fourmiliere.getNombreFourmies());
@@ -127,6 +144,9 @@ public class main implements Runnable{
         }
     }
 
+    /**
+     * Gère l'évènement hiver
+     */
     private static void climat(){
         if (winterIsComing != 0) --winterIsComing;
         else if (hiver != 0) {
@@ -145,11 +165,16 @@ public class main implements Runnable{
         return new Random().nextInt(max - min + 1) + min;
     }
 
+    /**
+     * Nettoie l'interface graphique concernant les envahisseurs
+     */
     private static void clean(){
         Affiche.typeEnvahisseur.setText("Aucun ennemi");
         Affiche.nbForceEnvahisseur.setText("");
     }
-
+    /**
+     * La fonction principale
+     */
     public static void main(String[] args) throws InterruptedException, InvocationTargetException {
         main main = new main();
         Affiche = new GUI();
