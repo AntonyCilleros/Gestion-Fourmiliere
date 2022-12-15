@@ -4,7 +4,7 @@
 
 Ce projet a pour objectif de réaliser un jeu de gestion de fourmilière en essayant d'être un temps soit peu fidèle à la réalité avec les différents type de fourmis, un système de nourriture et d'évenements aléatoire.
 
-![Image du jeu](C:\Users\maxim\IdeaProjects\Gestion-Fourmiliere\imageFourmiliere.PNG)
+![Image du jeu](./imageFourmiliere.PNG)
 
 ## Manuel d'utilisation
 
