@@ -1,7 +1,7 @@
 public class Terminator implements Predateur{
     int puissance;
-    final int MIN = 100000;
-    final int MAX = 1000000;
+    final int MIN = 10000;
+    final int MAX = 100000;
     public Terminator() {
         this.puissance = (int)(Math.random()*(MAX-MIN+1)+MIN);
     }

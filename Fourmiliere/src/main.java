@@ -12,6 +12,8 @@ public class main implements Runnable{
     static int temps = 0;
     static int hiver = 0;
     static int winterIsComing = 0;
+    static int cdEnnemiPause = 0;
+    static int cdEnnemi = 0;
 
     private static void ManageScreen() throws InterruptedException, InvocationTargetException {
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -48,7 +50,7 @@ public class main implements Runnable{
         Affiche.nbNourritureLabel.setText(String.valueOf(fourmiliere.getNbNourriture()));
         Affiche.puissanceLabel.setText(String.valueOf(fourmiliere.getPuissance()));
         if (winterIsComing > 0) Affiche.HiverLabel.setText("Winter is coming!");
-        else if (hiver > 0) Affiche.HiverLabel.setText("C'est l'hiver");
+        else if (hiver > 0) Affiche.HiverLabel.setText("C'est l'hiver (" + hiver + ")");
         else Affiche.HiverLabel.setText("");
     }
 
@@ -69,15 +71,17 @@ public class main implements Runnable{
     }
 
     private static void ennemie(){
+        cdEnnemiPause = 5;
+        cdEnnemi = 5;
         final double choixEnnemie = Math.random();
         Predateur ennemie;
-        if (choixEnnemie <= 0.01){
+        if (temps > 100 && choixEnnemie <= 0.01){
             ennemie = new Terminator();
         }
-        else if (choixEnnemie < 0.2){
+        else if (temps > 50 && choixEnnemie < 0.2){
             ennemie = new ManteReligieuse();
         }
-        else if (choixEnnemie < 0.6){
+        else if (temps > 70 && choixEnnemie < 0.6){
             ennemie = new Guepe();
         }
         else{
@@ -91,7 +95,7 @@ public class main implements Runnable{
                 System.out.println("Toutes les fourmies sont mortes.");
                 while(true);
             }
-            int perte = randomNumberBetween(70,80);
+            double perte = randomNumberBetween(50,70);
             System.out.println("Ennemi plus fort");
             System.out.println("Avant attaque : " + fourmiliere.getNombreFourmies());
             mort(fourmiliere.getNombreFourmies()*(perte/100));
@@ -106,7 +110,7 @@ public class main implements Runnable{
         }
     }
 
-    private static void mort(int perte){
+    private static void mort(double perte){
         for (int i=0; i < perte; ++i){
             int condamne = randomNumberBetween(1, fourmiliere.getNombreFourmies());
             if (condamne > fourmiliere.getNbAventuriere()){
@@ -142,7 +146,7 @@ public class main implements Runnable{
     }
 
     private static void clean(){
-        Affiche.typeEnvahisseur.setText("");
+        Affiche.typeEnvahisseur.setText("Aucun ennemi");
         Affiche.nbForceEnvahisseur.setText("");
     }
 
@@ -151,25 +155,31 @@ public class main implements Runnable{
         Affiche = new GUI();
         Thread larve = new Thread(main);
         larve.start();
+        clean();
 
         java.util.Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
-        int timeinterval = 3 * 1000; //timer executes every 1 seconds
+        int timeinterval = 2 * 1000; //timer executes every 2 seconds
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
                 //This code is executed at every interval defined by timeinterval (eg 10 seconds)
                 //And starts after x milliseconds defined by begin.
                 try {
-                    if (!Affiche.pause) {
-                        if (temps >= 10) {
-                            if (Math.random() < 0.02) ennemie();
-                            else clean();
-                            climat(); // Les probabilités se changent dans la fonction
+                    if (cdEnnemiPause == 0){
+                        if (!Affiche.pause) {
+                            if (temps >= 10) {
+                                if (cdEnnemi == 0)
+                                    if (Math.random() < 0.05) ennemie();
+                                    else clean();
+                                else --cdEnnemi;
+                                climat(); // Les probabilités se changent dans la fonction
+                            }
+                            creerFourmie();
+                            ++temps;
                         }
-                        creerFourmie();
-                        ++temps;
                     }
+                    else --cdEnnemiPause;
                     ManageScreen();
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
