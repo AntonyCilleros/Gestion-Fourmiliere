@@ -25,9 +25,9 @@ public class test {
                 System.out.println("Toutes les fourmies sont mortes.");
                 while(true);
             }
-            for (int i=0; i < ennemie.getPuissance() - fourmiliere.getPuissance(); ++i){
+            int puissanceFourmies = fourmiliere.getPuissance();
+            for (int i=0; i < ennemie.getPuissance() - puissanceFourmies; ++i){
                 total = fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere() + fourmiliere.getNbSoldat();
-                System.out.println(total);
                 int condamne = new Random().nextInt(total - 1 + 1) + 1;
                 if (condamne > fourmiliere.getNbAventuriere()){
                     if (condamne > fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere()){
@@ -60,7 +60,7 @@ public class test {
         fourmiliere.groupeFourmies.groupeAventuriere.nbAventuriere = 1500;
         Timer timer = new Timer();
         int begin = 1000; //timer starts after 1 second
-        int timeinterval = 1 * 1000; //timer executes every 10 seconds
+        int timeinterval = 1 * 1000; //timer executes every 1 seconds
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
