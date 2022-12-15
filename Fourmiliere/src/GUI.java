@@ -45,11 +45,13 @@ public class GUI extends JFrame{
     public double probaAventuriere = 0.33;
     public double probaNourrice = 0.33;
 
+    public boolean pause = false;
+
     public GUI() {
         pauseButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // met en pause le temps
+                pause = !pause;
             }
         });
         moinsSoldatButton.addActionListener(new ActionListener() {

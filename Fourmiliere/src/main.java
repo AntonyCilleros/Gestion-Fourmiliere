@@ -12,7 +12,6 @@ public class main implements Runnable{
     static int temps = 0;
     static int hiver = 0;
     static int winterIsComing = 0;
-    static boolean pause = false;
 
     private static void ManageScreen() throws InterruptedException, InvocationTargetException {
         SwingUtilities.invokeAndWait(new Runnable() {
@@ -162,7 +161,7 @@ public class main implements Runnable{
                 //This code is executed at every interval defined by timeinterval (eg 10 seconds)
                 //And starts after x milliseconds defined by begin.
                 try {
-                    if (!pause) {
+                    if (!Affiche.pause) {
                         if (temps >= 10) {
                             if (Math.random() < 0.05) ennemie();
                             else clean();
