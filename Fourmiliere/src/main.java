@@ -48,9 +48,6 @@ public class main implements Runnable{
         Affiche.aventurieresTotal.setText(String.valueOf(fourmiliere.getNbAventuriere()));
         Affiche.nbNourritureLabel.setText(String.valueOf(fourmiliere.getNbNourriture()));
         Affiche.nbForceTotal.setText(String.valueOf(fourmiliere.getPuissance()));
-        Affiche.partSoldats.setText(String.valueOf(Affiche.probaSoldats));
-        Affiche.partNourricieres.setText(String.valueOf(Affiche.probaNourrice));
-        Affiche.partAventurieres.setText(String.valueOf(Affiche.probaAventuriere));
     }
 
     public static void creerFourmie() throws InterruptedException {

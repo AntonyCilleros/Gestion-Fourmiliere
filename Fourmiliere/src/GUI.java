@@ -39,6 +39,7 @@ public class GUI extends JFrame{
     public JLabel NourricieresTotal;
     public JLabel aventurieresTotal;
     public JLabel TempsPasseValeur;
+    private JLabel HiverLabel;
 
     public double probaSoldats = 0.33;
     public double probaAventuriere = 0.33;
@@ -54,30 +55,41 @@ public class GUI extends JFrame{
         moinsSoldatButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(probaSoldats <= 0.1) {
+                if(probaSoldats >= 0.1) {
                     probaSoldats -= 0.1;
                     probaNourrice += 0.05;
                     probaAventuriere += 0.05;
+                    partSoldats.setText(String.valueOf(probaSoldats));
+                    partNourricieres.setText(String.valueOf(probaNourrice));
+                    partAventurieres.setText(String.valueOf(probaAventuriere));
                 }
             }
         });
         moinsAventurieresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(probaAventuriere <= 0.1) {
+                if(probaAventuriere >= 0.1) {
                     probaAventuriere -= 0.1;
                     probaNourrice += 0.05;
                     probaSoldats += 0.05;
-                }            }
+                    partNourricieres.setText(String.valueOf(probaNourrice));
+                    partSoldats.setText(String.valueOf(probaSoldats));
+                    partAventurieres.setText(String.valueOf(probaAventuriere));
+                }
+            }
         });
         moinsNourricieresButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if(probaNourrice <= 0.1) {
+                if(probaNourrice >= 0.1) {
                     probaNourrice -= 0.1;
                     probaSoldats+= 0.05;
                     probaAventuriere += 0.05;
-                }            }
+                    partAventurieres.setText(String.valueOf(probaAventuriere));
+                    partNourricieres.setText(String.valueOf(probaNourrice));
+                    partSoldats.setText(String.valueOf(probaSoldats));
+                }
+            }
         });
         plusSoldatButton.addActionListener(new ActionListener() {
             @Override
@@ -86,6 +98,9 @@ public class GUI extends JFrame{
                     probaSoldats += 0.1;
                     probaAventuriere -= 0.05;
                     probaNourrice -= 0.05;
+                    partSoldats.setText(String.valueOf(probaSoldats));
+                    partNourricieres.setText(String.valueOf(probaNourrice));
+                    partAventurieres.setText(String.valueOf(probaAventuriere));
                 }
             }
         });
@@ -96,6 +111,9 @@ public class GUI extends JFrame{
                     probaAventuriere += 0.1;
                     probaSoldats -= 0.05;
                     probaNourrice -= 0.05;
+                    partAventurieres.setText(String.valueOf(probaAventuriere));
+                    partNourricieres.setText(String.valueOf(probaNourrice));
+                    partSoldats.setText(String.valueOf(probaSoldats));
                 }
             }
         });
@@ -106,6 +124,9 @@ public class GUI extends JFrame{
                     probaNourrice += 0.1;
                     probaAventuriere -= 0.05;
                     probaSoldats -= 0.05;
+                    partNourricieres.setText(String.valueOf(probaNourrice));
+                    partAventurieres.setText(String.valueOf(probaAventuriere));
+                    partSoldats.setText(String.valueOf(probaSoldats));
                 }
             }
         });
@@ -114,6 +135,9 @@ public class GUI extends JFrame{
         this.setSize(800,400);
         this.setVisible(true);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        partSoldats.setText(String.valueOf(probaSoldats));
+        partAventurieres.setText(String.valueOf(probaAventuriere));
+        partNourricieres.setText(String.valueOf(probaNourrice));
     }
 
     public static void main(String[] args) {
