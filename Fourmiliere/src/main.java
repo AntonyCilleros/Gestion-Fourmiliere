@@ -59,10 +59,10 @@ public class main implements Runnable{
         }
     }
 
-    private static void ennemie(Fourmiliere fourmiliere){
+    private static void ennemie(){
         final double choixEnnemie = Math.random();
         Predateur ennemie;
-        if (choixEnnemie == 0.0){
+        if (choixEnnemie <= 0.01){
             ennemie = new Terminator();
         }
         else if (choixEnnemie < 0.2){
@@ -76,36 +76,45 @@ public class main implements Runnable{
         }
         System.out.println("Une " + ennemie.getClass().getName() + " sauvage apparait ! (puissance : " + ennemie.getPuissance() + ")");
         if (ennemie.getPuissance() > fourmiliere.getPuissance()){
-            int total = fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere() + fourmiliere.getNbSoldat();
-            if (ennemie.getPuissance() - fourmiliere.getPuissance() > total){
+            if (ennemie.getPuissance() >= fourmiliere.getPuissance()*3){
                 System.out.println("Toutes les fourmies sont mortes.");
                 while(true);
             }
-            int puissanceFourmies = fourmiliere.getPuissance();
-            for (int i=0; i < ennemie.getPuissance() - puissanceFourmies; ++i){
-                total = fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere() + fourmiliere.getNbSoldat();
-                int condamne = new Random().nextInt(total - 1 + 1) + 1;
-                if (condamne > fourmiliere.getNbAventuriere()){
-                    if (condamne > fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere()){
-                        fourmiliere.groupeFourmies.groupeSoldat.nbSoldat -= 1;
-                    }
-                    else {
-                        fourmiliere.groupeFourmies.groupeNourrice.nbNourrice -= 1;
-                    }
-                }
-                else {
-                    fourmiliere.groupeFourmies.groupeAventuriere.nbAventuriere -= 1;
-                }
-            }
+            int perte = new Random().nextInt(80 - 70 + 1) + 70;
+            System.out.println("Ennemi plus fort");
+            System.out.println("Avant attaque : " + fourmiliere.getNombreFourmies());
+            mort(fourmiliere.getNombreFourmies()*(perte/100));
+            System.out.println("Après attaque : " + fourmiliere.getNombreFourmies());
         }
         else {
-            System.out.println("Menace éliminé, aucune perte allié");
+            int perte = new Random().nextInt(10 - 5 + 1) + 5;
+            System.out.println("Fourmies gagnent");
+            System.out.println("Avant attaque : " + fourmiliere.getNombreFourmies());
+            mort(perte);
+            System.out.println("Après attaque : " + fourmiliere.getNombreFourmies());
         }
     }
 
-    private static void evenement(Fourmiliere fourmiliere){
+    private static void mort(int perte){
+        for (int i=0; i < perte; ++i){
+            int condamne = new Random().nextInt(fourmiliere.getNombreFourmies() - 1 + 1) + 1;
+            if (condamne > fourmiliere.getNbAventuriere()){
+                if (condamne > fourmiliere.getNbAventuriere() + fourmiliere.getNbNourriciere()){
+                    fourmiliere.groupeFourmies.groupeSoldat.nbSoldat -= 1;
+                }
+                else {
+                    fourmiliere.groupeFourmies.groupeNourrice.nbNourrice -= 1;
+                }
+            }
+            else {
+                fourmiliere.groupeFourmies.groupeAventuriere.nbAventuriere -= 1;
+            }
+        }
+    }
+
+    private static void evenement(){
         final double evenement = (Math.random());
-        if (evenement < 0.5) ennemie(fourmiliere);
+        if (evenement < 0.5) ennemie();
         else if (evenement < 0.75) System.out.println("Un évènement de type climat se produit wallah");
         else System.out.println("C'est l'hiver");
     }
@@ -125,7 +134,7 @@ public class main implements Runnable{
                 //This code is executed at every interval defined by timeinterval (eg 10 seconds)
                 //And starts after x milliseconds defined by begin.
                 try {
-                    if (Math.random() < 0.5) evenement(fourmiliere);
+                    if (temps >= 5 && Math.random() < 1) evenement();
                     ManageScreen();
                     creerFourmie();
                 } catch (InterruptedException e) {
